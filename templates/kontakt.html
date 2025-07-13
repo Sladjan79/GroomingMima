@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt - GROOMING MIMA</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .nav-bar {
+            text-align: center;
+            background-color: #b30059;
+            padding: 10px;
+        }
+        .nav-bar a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header, .kontakt-forma {
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3399ff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #poruka-status {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigacija -->
+    <nav class="nav-bar">
+        <a href="/">Početna</a>
+        <a href="/usluge">Usluge</a>
+        <a href="/cenovnik">Cenovnik</a>
+        <a href="/galerija">Galerija</a>
+        <a href="/kontakt">Kontakt</a>
+        <a class="telefon" href="tel:0694772922">📞 069/477-2922</a>
+    </nav>
+
+    <!-- Naslov -->
+    <header>
+        <h1>Kontaktirajte nas</h1>
+    </header>
+
+    <!-- Forma -->
+    <section class="kontakt-forma">
+        <form id="kontakt-forma">
+            <input type="hidden" name="_captcha" value="false">
+
+            <label for="ime">Vaše ime:</label><br>
+            <input type="text" id="ime" name="ime" required><br>
+
+            <label for="telefon">Vaš broj telefona:</label><br>
+            <input type="text" id="telefon" name="telefon" required><br>
+
+            <label for="poruka">Unesite rasu psa i željenu uslugu:</label><br>
+            <textarea id="poruka" name="poruka" rows="5" required></textarea><br>
+
+            <button type="submit">Pošalji poruku</button>
+
+            <!-- Ovde će se prikazati poruka o uspešnom slanju -->
+            <div id="poruka-status"></div>
+        </form>
+    </section>
+
+    <!-- Skripta za AJAX slanje -->
+    <script>
+    document.getElementById("kontakt-forma").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const statusDiv = document.getElementById("poruka-status");
+
+        fetch("https://formsubmit.co/ajax/groomingmima.bor@gmail.com", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                statusDiv.textContent = "Poruka je uspešno poslata!";
+                statusDiv.style.color = "green";
+                form.reset();
+                setTimeout(() => {
+                    statusDiv.textContent = "";
+                }, 5000); // poruka nestaje posle 5 sekundi
+            } else {
+                statusDiv.textContent = "Greška pri slanju. Pokušajte ponovo.";
+                statusDiv.style.color = "red";
+            }
+        })
+        .catch(error => {
+            statusDiv.textContent = "Greška pri slanju poruke.";
+            statusDiv.style.color = "red";
+            console.error(error);
+        });
+    });
+</script>
+
+
+</body>
+</html>
