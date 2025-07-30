@@ -1,4 +1,4 @@
-/* Reset i osnovno */
+/* ================= RESET & OSNOVNI STILOVI ================= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -6,20 +6,20 @@ body {
     color: #333;
 }
 
-/* Navigacija */
+/* =================== NAVIGACIJA =================== */
 .nav-bar {
-    background-color: #b30059 ;
-    padding: 10px 0;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d81b60;
 }
 
 .nav-bar a {
     color: white;
     text-decoration: none;
-    padding: 8px 12px;
+    margin-right: 15px;
     font-weight: bold;
 }
 
@@ -28,14 +28,43 @@ body {
     border-radius: 5px;
 }
 
-/* Pozdravni tekst */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.instagram-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.instagram-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+}
+
+.instagram-link:hover .instagram-icon {
+    transform: scale(1.2);
+}
+
+.instagram-text {
+    font-size: 14px;
+}
+
+/* =================== POZDRAVNI TEKST =================== */
 .pozdrav {
     text-align: center;
     padding: 20px 10px;
     background-color: #ffe6f0;
 }
 
-/* Header sa logoom i radnim vremenom */
+/* =================== HEADER =================== */
 .header {
     display: flex;
     justify-content: center;
@@ -54,107 +83,57 @@ body {
     border: 2px solid #fddde6;
     padding: 15px;
     border-radius: 10px;
-    background-color:#ff69b4;
+    background-color: #ff69b4;
 }
 
-/* Galerija */
+/* =================== GALERIJA =================== */
 .galerija {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 20px;
-    padding: 20px;
+    flex-wrap: wrap; /* omogućava prelom na manjim ekranima */
+    margin: 2rem 0;
 }
 
 .galerija img {
-    width: 300px;
-    max-width: 90%;
+    width: 300px; /* ili 100%, ako želiš da se automatski skalira */
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-/* Mapa */
-.mapa {
-    text-align: center;
-    padding: 20px;
-}
-
-.mapa h2 {
-    margin-bottom: 10px;
-}
-
-/* Footer */
-footer {
-    background-color: #b30059;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 30px;
-}
-
-/* Responsive dizajn */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .radno-vreme {
-        width: 90%;
-    }
-
-    .galerija {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-bar {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-.usluge-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-@media (max-width: 600px) {
-    .usluge-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-.usluga-kartica {
-    border: 2px solid #3498db;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
 
-.usluga-kartica:hover {
-    transform: scale(1.03);
+.galerija img:hover {
+    transform: scale(1.05);
 }
 
-.usluga-kartica img {
+
+.slika-par {
+    background: white;
+    padding: 1em;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.slika-par:hover {
+    transform: scale(1.02);
+}
+
+.slika-par img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
     border-radius: 8px;
+    margin-bottom: 0.5em;
 }
 
-.usluga-kartica h3 {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #333;
-}
+/* =================== USLUGE =================== */
 .usluge-sekcija {
     max-width: 1200px;
     margin: 40px auto;
@@ -184,6 +163,7 @@ footer {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+    text-align: center;
 }
 
 .usluga-kartica:hover {
@@ -207,6 +187,8 @@ footer {
     font-size: 1em;
     color: #666;
 }
+
+/* =================== CENOVNIK =================== */
 .cenovnik-sekcija {
     max-width: 900px;
     margin: 50px auto;
@@ -245,65 +227,7 @@ footer {
     background-color: #f9f9f9;
 }
 
-@media (max-width: 600px) {
-    .cenovnik-tabela table,
-    .cenovnik-tabela thead,
-    .cenovnik-tabela tbody,
-    .cenovnik-tabela th,
-    .cenovnik-tabela td,
-    .cenovnik-tabela tr {
-        display: block;
-    }
-
-    .cenovnik-tabela thead tr {
-        display: none;
-    }
-
-    .cenovnik-tabela td {
-        position: relative;
-        padding-left: 50%;
-        text-align: left;
-        border: none;
-        border-bottom: 1px solid #eee;
-    }
-
-    .cenovnik-tabela td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        font-weight: bold;
-    }
-}
-@media (max-width: 600px) {
-    .tabela-cenovnik table,
-    .tabela-cenovnik thead,
-    .tabela-cenovnik tbody,
-    .tabela-cenovnik th,
-    .tabela-cenovnik td,
-    .tabela-cenovnik tr {
-        display: block;
-    }
-
-    .tabela-cenovnik thead tr {
-        display: none;
-    }
-
-    .tabela-cenovnik td {
-        position: relative;
-        padding-left: 50%;
-        text-align: left;
-        border: none;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .tabela-cenovnik td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        font-weight: bold;
-        color: #333;
-    }
-}
+/* =================== KONTAKT FORMA =================== */
 .kontakt-naslov {
     text-align: center;
     margin-top: 40px;
@@ -356,86 +280,27 @@ footer {
 .kontakt-forma button:hover {
     background-color: #b30059;
 }
-.galerija {
-    padding: 2em;
-    text-align: center;
-    background-color: #fff0f5; /* baby pink */
-}
 
-.galerija h2 {
-    margin-bottom: 1.5em;
-    font-size: 2em;
-}
-
-.galerija-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2em;
-}
-
-.slika-par {
-    background: white;
-    padding: 1em;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s ease;
-}
-
-.slika-par:hover {
-    transform: scale(1.02);
-}
-
-.slika-par img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 0.5em;
-}
-
-/* Responsive prilagođavanje */
-@media (max-width: 600px) {
-    .slika-par {
-        max-width: 90%;
-    }
-
-    .galerija h2 {
-        font-size: 1.5em;
-    }
-}.nav-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #d81b60; /* tamno roze */
-}
-
-.nav-bar a {
+/* =================== FOOTER =================== */
+footer {
+    background-color: #b30059;
     color: white;
-    text-decoration: none;
-    margin-right: 15px;
-    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-}
-
-.instagram-icon {
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
-    filter: brightness(100%);
-}
-
-/* Mobilni prikaz */
+/* =================== RESPONSIVE STILOVI =================== */
 @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .radno-vreme {
+        width: 90%;
+    }
+
     .nav-bar {
         flex-direction: column;
         align-items: flex-start;
@@ -444,33 +309,48 @@ footer {
     .nav-right {
         margin-top: 10px;
     }
-}
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+
+    .galerija h2 {
+        font-size: 1.5em;
+    }
 }
 
-.instagram-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
+@media (max-width: 600px) {
+    .galerija-grid {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.instagram-icon {
-    width: 20px;
-    height: 20px;
-    transition: transform 0.2s ease;
-}
+    .slika-par {
+        max-width: 90%;
+    }
 
-.instagram-link:hover .instagram-icon {
-    transform: scale(1.2);
-}
+    .cenovnik-tabela table,
+    .cenovnik-tabela thead,
+    .cenovnik-tabela tbody,
+    .cenovnik-tabela th,
+    .cenovnik-tabela td,
+    .cenovnik-tabela tr {
+        display: block;
+    }
 
-.instagram-text {
-    font-size: 14px;
-}
+    .cenovnik-tabela thead tr {
+        display: none;
+    }
 
+    .cenovnik-tabela td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .cenovnik-tabela td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        color: #333;
+    }
+}
