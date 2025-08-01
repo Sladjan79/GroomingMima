@@ -357,7 +357,8 @@ footer {
 .mapa {
     display: flex;
     justify-content: center; /* Centriranje po horizontali */
-    margin-top: 20px;
+    padding: 0 10px; /* Blagi unutrašnji razmak sa strane */
+    box-sizing: border-box;
 }
 
 .mapa iframe {
